@@ -1,17 +1,15 @@
 *** Settings ***
-Library           SeleniumLibrary
+Library    SeleniumLibrary
 
 *** Variables ***
-${URL}            file://${CURDIR}/../src/index.html
-${BROWSER}        Chrome
-${USERNAME}       admin
-${PASSWORD}       1234
+${BROWSER}     Chrome
+${LOGIN_PAGE}  http://localhost:8000/sua-pagina.html
 
 *** Test Cases ***
 Login Válido
-    Open Browser    ${URL}    ${BROWSER}
-    Input Text      id:user    ${USERNAME}
-    Input Text      id:pass    ${PASSWORD}
+    Open Browser    ${LOGIN_PAGE}    ${BROWSER}
+    Input Text    id:user    admin
+    Input Text    id:pass    1234
     Click Button    Entrar
-    Page Should Contain    Cadastro de Estoque
+    Page Should Contain    Cadastro de Produto
     Close Browser
