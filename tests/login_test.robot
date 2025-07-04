@@ -3,7 +3,7 @@ Library    SeleniumLibrary
 
 *** Variables ***
 ${BROWSER}     Chrome
-${LOGIN_PAGE}  http://localhost:8000/sua-pagina.html
+${LOGIN_PAGE}  http://localhost:8000/index.html
 
 *** Test Cases ***
 Login Válido
@@ -11,5 +11,5 @@ Login Válido
     Input Text    id:user    admin
     Input Text    id:pass    1234
     Click Button    Entrar
-    Page Should Contain    Cadastro de Produto
+    Page Should Contain Element    id:main-screen
     Close Browser
